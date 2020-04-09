@@ -50,12 +50,12 @@ class Piwigo(object):
 
         p = Path(filename)
         name = p.stem
-        chunks_num = ceil(p.stat().st_size / chunk_size)
+        n_chunks = ceil(p.stat().st_size / chunk_size)
         for i, c in enumerate(chunks(filename, chunk_size)):
             self._request('images.upload',
                           pwg_token=self.token,
                           category=album_id,
                           name=name,
                           chunk=i,
-                          chunks=chunks_num,
+                          chunks=n_chunks,
                           files={'file': c})

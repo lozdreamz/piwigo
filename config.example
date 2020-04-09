@@ -1,0 +1,4 @@
+[default]
+host = https://my.piwigo.host
+username = admin
+password = pass
